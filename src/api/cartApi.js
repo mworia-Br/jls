@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function addToCart(size, productId, quantity) {
   try {
-    const { data } = await axios.post("http://braycodes.pythonanywhere.com/order/", {
+    const { data } = await axios.post("/order/", {
       size: size,
       product: productId,
       quantity: quantity,
@@ -16,7 +16,7 @@ export async function addToCart(size, productId, quantity) {
 
 export async function fetchCart() {
   try {
-    const { data } = await axios.get("http://braycodes.pythonanywhere.com/order/?status=active");
+    const { data } = await axios.get("/order/?status=active");
     return { error: null, data };
   } catch (error) {
     return { error, data: null };
