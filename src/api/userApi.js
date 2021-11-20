@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function LoginUser(email, password) {
   try {
-    const { data } = await axios.post("/jwt/create/", {
+    const { data } = await axios.post("http://braycodes.pythonanywhere.com/jwt/create/", {
       email,
       password,
     });
@@ -13,7 +13,7 @@ export async function LoginUser(email, password) {
 }
 export async function getUser() {
   try {
-    const { data } = await axios.get("/users/me/");
+    const { data } = await axios.get("http://braycodes.pythonanywhere.com/users/me/");
 
     return { error: null, data };
   } catch (error) {
@@ -23,7 +23,7 @@ export async function getUser() {
 
 export async function updateAddress(address) {
   try {
-    const { data } = await axios.post("/addresses/", {
+    const { data } = await axios.post("http://braycodes.pythonanywhere.com/addresses/", {
       name: address["name"],
       lastname: address["lastname"],
       street: address["street"],
@@ -41,7 +41,7 @@ export async function updateAddress(address) {
 
 export async function listOrders() {
   try {
-    const { data } = await axios.get("/order/");
+    const { data } = await axios.get("http://braycodes.pythonanywhere.com/order/");
     return { error: null, data };
   } catch (error) {
     return { error: error.response.data, data: null };
@@ -50,7 +50,7 @@ export async function listOrders() {
 
 export async function updatePassword({ password, newPassword }) {
   try {
-    const { data } = await axios.post("/users/set_password/", {
+    const { data } = await axios.post("http://braycodes.pythonanywhere.com/users/set_password/", {
       current_password: password,
       new_password: newPassword,
     });
@@ -63,7 +63,7 @@ export async function updatePassword({ password, newPassword }) {
 
 export async function updateEmail({ email, password }) {
   try {
-    const { data } = await axios.post("/users/set_email/", {
+    const { data } = await axios.post("http://braycodes.pythonanywhere.com/users/set_email/", {
       new_email: email,
       current_password: password,
     });
