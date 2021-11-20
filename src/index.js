@@ -16,7 +16,7 @@ const store = configureStore({
   reducer: rootReducer,
 });
 
-axios.defaults.baseURL = "/api";
+axios.defaults.baseURL = "http://braycodes.pythonanywhere.com";
 
 axios.defaults.withCredentials = true;
 
