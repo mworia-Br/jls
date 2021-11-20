@@ -3,7 +3,7 @@ import { PRODUCT_LIMIT } from "../constants";
 
 export async function fetchProductsCategories() {
   try {
-    const { data } = await axios.get("/categories/");
+    const { data } = await axios.get("http://braycodes.pythonanywhere.com/categories/");
     return { error: null, data };
   } catch (error) {
     return { error, data: null };
@@ -18,7 +18,7 @@ export async function fetchProducts(filter, page) {
   if (category) query += `&category=${category}`;
 
   try {
-    const { data } = await axios.get("/products/" + query);
+    const { data } = await axios.get("http://braycodes.pythonanywhere.com/products/" + query);
     return { error: null, data };
   } catch (error) {
     return { error, data: null };
