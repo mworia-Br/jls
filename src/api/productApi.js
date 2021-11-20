@@ -27,7 +27,7 @@ export async function fetchProducts(filter, page) {
 
 export async function fetchFullProduct(slug) {
   try {
-    const { data } = await axios.get(`/products/${slug}/`);
+    const { data } = await axios.get(`http://braycodes.pythonanywhere.com/products/${slug}/`);
 
     return { error: null, data };
   } catch (error) {
